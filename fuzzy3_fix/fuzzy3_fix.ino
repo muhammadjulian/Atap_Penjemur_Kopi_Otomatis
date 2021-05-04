@@ -6,17 +6,29 @@
 
 #define I2C_ADDRESS 0x77
 
-//create an BMP180 object using the I2C interface
+// BMP180 
 BMP180I2C bmp180(I2C_ADDRESS);
 
 
 //DHT11
 #include "DHT.h"
-#define DHTPIN 3     // Digital pin connected to the DHT sensor
-// Uncomment whatever type you're using!
+#define DHTPIN 5     // Digital pin koneksi untuk DHT
 #define DHTTYPE DHT11   // DHT 11
 DHT dht(DHTPIN, DHTTYPE);
 
+//limit Switch
+int limit1 = 10; //bukaAtas
+int limit2 = 11;//bukaBawah
+int limit3 = 12;//TutupAtas
+int limit4 = 13;//TutupBawah
+//Motor DC
+int motor1pin1 = 23;
+int motor1pin2 = 22;
+int en1 = 2;
+
+int motor2pin1 = 25;
+int motor2pin2 = 24;
+int en2 = 4;
 
 Fuzzy *fuzzy = new Fuzzy();
 
@@ -49,22 +61,19 @@ Fuzzy *fuzzy = new Fuzzy();
 #include "percabangan.h"
 void setup() {
 Serial.begin(115200);
- //wait for serial connection to open (only necessary on some boards)
+ // menunggu koneksi serial monitor
   while (!Serial);
 
   Wire.begin();
 
-  //begin() initializes the interface, checks the sensor ID and reads the calibration parameters.  
+  //begin() inisiliasai interface, cek sensor ID dan read parameter kalibrasi  
   if (!bmp180.begin())
   {
     Serial.println("begin() failed. check your BMP180 Interface and I2C Address.");
     while (1);
   }
 
-  //reset sensor to default parameters.
- // bmp180.resetToDefaults();
-
-  //enable ultra high resolution mode for pressure measurements
+  //mengaktifkan resolusi ultra tinggi
   bmp180.setSamplingMode(BMP180MI::MODE_UHR);
   //DHT11
 
@@ -73,45 +82,36 @@ Serial.begin(115200);
 
   fuzziSet ();
   fuzzi3 ();
-    }
     
+}  
 void loop() {
 
 //int suhu = random(0, 50);//suhu 
 //int kelembapan = random(20, 90);//kelembapan
 //int tudara = random(900, 1100);//tekanan
 
-//int suhu = 27;//suhu 
-//int kelembapan = 79;//kelembapan
-//int tudara = 936;//tekanan
-
   int tudara = (bmp180.getPressure())/100;
-  // Reading temperature or humidity takes about 250 milliseconds!
-  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
-    // Read temperature as Celsius (the default)
   int x = bmp180.getTemperature();
   int y = dht.readTemperature();
   int suhu = (x+y)/2;
   int kelembapan = dht.readHumidity();
 
   //output kelembapan udara dan suhu
-   //start a temperature measurement
+   //memulai pengukuran suhu
   if (!bmp180.measureTemperature())
   {
     Serial.println("could not start temperature measurement, is a measurement already running?");
     return;
   }
 
-  //wait for the measurement to finish. proceed as soon as hasValue() returned true. 
+  //Menunggu untuk measurement untuk finish. proceed as soon as hasValue() returned true. 
   do
   {
     delay(100);
   } while (!bmp180.hasValue());
 
-  //Serial.print("Temperature: "); 
- // Serial.print(suhu); 
-  //Serial.println(" °C");
-  Serial.print(F("Suhu: "));
+  Serial.println("\n\n\nEntrace: ");
+  Serial.print(F("\t\tSuhu: "));
   Serial.print(suhu);
   Serial.print(F("°C  Kelembapan: "));
   Serial.print(kelembapan);
@@ -119,32 +119,33 @@ void loop() {
 
 
    
-    //start a pressure measurement. pressure measurements depend on temperature measurement, you should only start a pressure 
-  //measurement immediately after a temperature measurement. 
+  //memulai pengukuran tekanan
+  //pengukuran segera setelah pengukuran suhu
   if (!bmp180.measurePressure())
   {
     Serial.println("could not start perssure measurement, is a measurement already running?");
     return;
   }
 
-  //wait for the measurement to finish. proceed as soon as hasValue() returned true. 
+  //Menunggu pengukuran selesai. lanjutkan segera setelah hasValue () mengembalikan nilai true.
+
   do
   {
     delay(100);
   } while (!bmp180.hasValue());
   Serial.print("Tekanan Udara: "); 
   Serial.print(tudara);
-  Serial.print(" Hpa");
+  Serial.println(" Hpa");
 
 
-    // Check if any reads failed and exit early (to try again).
+    // memeriksa apakah ada pembacaan yang gagal dan keluar lebih awal (untuk mencoba lagi).
   if (isnan(suhu) || isnan(kelembapan))  {
     Serial.println(F("Failed to read from DHT sensor!"));
     return;
   }
 
   delay(2000);
-
+/*
   Serial.println("\n\n\nEntrace: ");
   Serial.print("\t\t\tSuhu : ");
   Serial.print(suhu);
@@ -152,7 +153,7 @@ void loop() {
   Serial.print(kelembapan);
   Serial.print(",dan Tekanan Udara: ");
   Serial.println(tudara);
-
+*/
     fuzzy->setInput(1, suhu);
     fuzzy->setInput(2, kelembapan);
     fuzzy->setInput(3, tudara);
