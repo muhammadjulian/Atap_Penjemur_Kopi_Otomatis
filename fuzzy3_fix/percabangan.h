@@ -32,6 +32,7 @@ float output1 = fuzzy->defuzzify(1);
   
 //percabangann fuzzy
   if (r1 == true ){
+  
        Serial.println("***********Rule Fuzzy 1**********");
        Serial.println("TUTUP CEPAT");
         //Atap TUTUP 
@@ -45,6 +46,17 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, LOW);//Nutup
         analogWrite(en1, output1);
        Serial.println();
+
+      if(digitalRead(limit3)==HIGH||digitalRead(limit4)==HIGH){
+       digitalWrite(motor2pin2, LOW);// Nutup
+       digitalWrite(motor2pin1, LOW);//Nutup
+  
+              // ATAP ATAS BIRU OUT 1, PUTIH OUT 2
+        digitalWrite(motor1pin2, LOW);// Nutup
+        digitalWrite(motor1pin1, LOW);//Nutup
+        delay(1000);
+       }
+
     
 }
   else if (r2 == true ){
@@ -59,6 +71,15 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
+      
+      if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
     
 }
   else if (r3 == true ){
@@ -73,6 +94,15 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
     
 }
   else if (r4 == true ){
@@ -89,6 +119,16 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, LOW);//Nutup
         analogWrite(en1, output1);
        Serial.println();
+       
+       if(digitalRead(limit3)==HIGH||digitalRead(limit4)==HIGH){
+       digitalWrite(motor2pin2, LOW);// Nutup
+       digitalWrite(motor2pin1, LOW);//Nutup
+  
+              // ATAP ATAS BIRU OUT 1, PUTIH OUT 2
+        digitalWrite(motor1pin2, LOW);// Nutup
+        digitalWrite(motor1pin1, LOW);//Nutup
+        delay(1000);
+       }
     
 }
   else if (r5 == true ){
@@ -103,6 +143,15 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
 }
   else if (r6 == true ){
        Serial.println("***********Rule Fuzzy 6**********");
@@ -116,7 +165,15 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
-    
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
 }
   else if (r7 == true ){
        Serial.println("***********Rule Fuzzy 7**********");
@@ -132,6 +189,16 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, LOW);//Nutup
         analogWrite(en1, output1);
        Serial.println();
+
+       if(digitalRead(limit3)==HIGH||digitalRead(limit4)==HIGH){
+       digitalWrite(motor2pin2, LOW);// Nutup
+       digitalWrite(motor2pin1, LOW);//Nutup
+  
+              // ATAP ATAS BIRU OUT 1, PUTIH OUT 2
+        digitalWrite(motor1pin2, LOW);// Nutup
+        digitalWrite(motor1pin1, LOW);//Nutup
+        delay(1000);
+       }
     
 }
   else if (r8 == true ){
@@ -146,7 +213,16 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
-    
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
+        
 }  else if (r9 == true ){
        Serial.println("***********Rule Fuzzy 9**********");
        Serial.println("BUKA NORMAL");
@@ -159,6 +235,15 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
 }
   else if (r10 == true ){
        Serial.println("***********Rule Fuzzy 10**********");
@@ -174,7 +259,16 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, LOW);//Nutup
         analogWrite(en1, output1);
        Serial.println();
-    
+       
+       if(digitalRead(limit3)==HIGH||digitalRead(limit4)==HIGH){
+       digitalWrite(motor2pin2, LOW);// Nutup
+       digitalWrite(motor2pin1, LOW);//Nutup
+  
+              // ATAP ATAS BIRU OUT 1, PUTIH OUT 2
+        digitalWrite(motor1pin2, LOW);// Nutup
+        digitalWrite(motor1pin1, LOW);//Nutup
+        delay(1000); 
+       }   
 }
   else if (r11 == true ){
        Serial.println("***********Rule Fuzzy 11**********");
@@ -188,6 +282,15 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
 }
   else if (r12 == true ){
        Serial.println("***********Rule Fuzzy 12**********");
@@ -201,6 +304,15 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
 }
   else if (r13 == true ){
        Serial.println("***********Rule Fuzzy 13**********");
@@ -218,6 +330,16 @@ float output1 = fuzzy->defuzzify(1);
         
         //Atap TUTUP
        Serial.println();
+           
+       if(digitalRead(limit3)==HIGH||digitalRead(limit4)==HIGH){
+       digitalWrite(motor2pin2, LOW);// Nutup
+       digitalWrite(motor2pin1, LOW);//Nutup
+  
+              // ATAP ATAS BIRU OUT 1, PUTIH OUT 2
+        digitalWrite(motor1pin2, LOW);// Nutup
+        digitalWrite(motor1pin1, LOW);//Nutup
+        delay(1000);
+       }
     
 }
   else if (r14 == true ){
@@ -231,9 +353,16 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin2, LOW);//Buka
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
-
-       
        Serial.println();
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
     
 }
   else if (r15 == true ){
@@ -248,6 +377,15 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
+
+             if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+  }
 }
   else if (r16 == true ){
        Serial.println("***********Rule Fuzzy 16**********");
@@ -264,6 +402,14 @@ float output1 = fuzzy->defuzzify(1);
         analogWrite(en1, output1);
        Serial.println();
     
+       if(digitalRead(limit3)==HIGH||digitalRead(limit4)==HIGH){
+       digitalWrite(motor2pin2, LOW);// Nutup
+       digitalWrite(motor2pin1, LOW);//Nutup
+  
+              // ATAP ATAS BIRU OUT 1, PUTIH OUT 2
+        digitalWrite(motor1pin2, LOW);// Nutup
+        digitalWrite(motor1pin1, LOW);//Nutup
+        delay(1000);}
 }
   else if (r17 == true ){
        Serial.println("***********Rule Fuzzy 17**********");
@@ -277,7 +423,15 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
-    
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
 }
   else if (r18 == true ){
        Serial.println("***********Rule Fuzzy 18**********");
@@ -291,6 +445,15 @@ float output1 = fuzzy->defuzzify(1);
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
     
 }  else if (r19 == true ){
        Serial.println("***********Rule Fuzzy 19**********");
@@ -307,6 +470,15 @@ float output1 = fuzzy->defuzzify(1);
         analogWrite(en1, output1);
        Serial.println();
     
+       if(digitalRead(limit3)==HIGH||digitalRead(limit4)==HIGH){
+       digitalWrite(motor2pin2, LOW);// Nutup
+       digitalWrite(motor2pin1, LOW);//Nutup
+  
+              // ATAP ATAS BIRU OUT 1, PUTIH OUT 2
+        digitalWrite(motor1pin2, LOW);// Nutup
+        digitalWrite(motor1pin1, LOW);//Nutup
+        delay(1000);  
+       }  
 } 
 else if (r20 == true ){
        Serial.println("***********Rule Fuzzy 20**********");
@@ -320,6 +492,15 @@ else if (r20 == true ){
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
+
+      if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+      }
     
 }
   else if (r21 == true ){
@@ -334,7 +515,15 @@ else if (r20 == true ){
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
-    
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
 } else if (r22 == true ){
        Serial.println("***********Rule Fuzzy 22**********");
        Serial.println("TUTUP CEPAT");
@@ -349,6 +538,16 @@ else if (r20 == true ){
         digitalWrite(motor1pin1, LOW);//Nutup
         analogWrite(en1, output1);
        Serial.println();
+    
+       if(digitalRead(limit3)==HIGH||digitalRead(limit4)==HIGH){
+       digitalWrite(motor2pin2, LOW);// Nutup
+       digitalWrite(motor2pin1, LOW);//Nutup
+  
+              // ATAP ATAS BIRU OUT 1, PUTIH OUT 2
+        digitalWrite(motor1pin2, LOW);// Nutup
+        digitalWrite(motor1pin1, LOW);//Nutup
+        delay(1000);
+       }
 }
 else if (r23== true ){
        Serial.println("***********Rule Fuzzy 23**********");
@@ -362,7 +561,15 @@ else if (r23== true ){
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
-    
+       
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
 }
   else if (r24 == true ){
        Serial.println("***********Rule Fuzzy 24**********");
@@ -376,7 +583,16 @@ else if (r23== true ){
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
-    
+     
+      if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+      }
+   
 }
  else if (r25 == true ){
        Serial.println("***********Rule Fuzzy 25**********");
@@ -392,7 +608,16 @@ else if (r23== true ){
         digitalWrite(motor1pin1, LOW);//Nutup
         analogWrite(en1, output1);
        Serial.println();
-    
+      
+       if(digitalRead(limit3)==HIGH||digitalRead(limit4)==HIGH){
+       digitalWrite(motor2pin2, LOW);// Nutup
+       digitalWrite(motor2pin1, LOW);//Nutup
+  
+              // ATAP ATAS BIRU OUT 1, PUTIH OUT 2
+        digitalWrite(motor1pin2, LOW);// Nutup
+        digitalWrite(motor1pin1, LOW);//Nutup
+        delay(1000);  
+       }
 }
   else if (r26 == true ){
        Serial.println("***********Rule Fuzzy 26**********");
@@ -406,6 +631,15 @@ else if (r23== true ){
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
+
+       if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
+       }
 }
   else if (r27 == true ){
        Serial.println("***********Rule Fuzzy 27**********");
@@ -419,7 +653,14 @@ else if (r23== true ){
         digitalWrite(motor1pin1, HIGH);//Buka
         analogWrite(en1, output1);
       Serial.println();
-    
+      
+      if(digitalRead(limit1)==HIGH||digitalRead(limit2)==HIGH){
+       digitalWrite(motor2pin2, LOW);
+       digitalWrite(motor2pin1, LOW);
+
+        digitalWrite(motor1pin2, LOW);
+        digitalWrite(motor1pin1, LOW);
+        delay(1000);
 }
 
 
@@ -428,3 +669,4 @@ else if (r23== true ){
     
 
 }
+  }
